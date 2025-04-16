@@ -1,0 +1,16 @@
+# Use root/example as user/password credentials
+services:
+
+  mongodb:
+    image: mongodb/mongodb-community-server:7.0.15-ubuntu2204
+    restart: always
+    ports:
+      - 27017:27017
+    environment:
+      MONGODB_INITDB_ROOT_USERNAME: root
+      MONGODB_INITDB_ROOT_PASSWORD: example
+    volumes:
+      - ./sample_data:/sample_data
+
+volumes:
+  sample_data:
